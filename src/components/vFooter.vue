@@ -44,7 +44,7 @@ export default {};
 </script>
 <style lang="scss" scoped>
 .container {
-  width: 1150px;
+  width: 1200px;
   margin: 0 auto;
 }
 .footer {

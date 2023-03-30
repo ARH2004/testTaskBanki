@@ -17,6 +17,9 @@ export default {
   border: 1px solid #e1e1e1;
   padding: 13px 0px 14px 16px;
 }
+.input:focus {
+  border: 1px solid #b5b5b5;
+}
 ::placeholder {
   font-size: 14px;
   line-height: 150%;
