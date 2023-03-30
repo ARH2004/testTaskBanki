@@ -44,11 +44,11 @@ export default {
     justify-content: space-between;
   }
   &__item {
-    color: #343030;
     font-weight: 400;
     font-size: 14px;
     line-height: 150%;
     margin-right: 48px;
+    color: #343030;
   }
   &__btn {
     color: #ffffff;
