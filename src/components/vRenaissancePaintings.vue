@@ -13,6 +13,7 @@
             :price="item.price"
             :alternativePrice="item.alternativePrice"
             :showPrice="item.showPrice"
+            :noPrice="noPrice"
           ></vCard>
         </div>
       </div>
@@ -26,6 +27,7 @@ export default {
   components: { vCard },
   data() {
     return {
+      noPrice: "Продана на аукционе",
       dt: [
         {
           id: Date.now(),

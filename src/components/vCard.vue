@@ -1,13 +1,18 @@
 <template>
   <div class="card">
     <img
+      @click="showDialog"
       :src="require('../assets/' + image)"
       alt="image"
       class="card__img"
       :class="{ altColorImg: showPrice === false }"
     />
     <div class="card__info-card">
-      <h2 class="card__painting" :class="{ altColor: showPrice === false }">
+      <h2
+        class="card__painting"
+        :class="{ altColor: showPrice === false }"
+        @click="showDialog"
+      >
         {{ namePainting }}
       </h2>
       <h2 class="card__author" :class="{ altColor: showPrice === false }">
@@ -20,15 +25,37 @@
         </div>
         <MyButton class="card__btn">Купить</MyButton>
       </div>
-      <p class="card__notAvailable" v-else>Продана на аукционе</p>
+      <p class="card__notAvailable" v-else>{{ noPrice }}</p>
     </div>
+    <MyDialog
+      :nameAuthorDialog="nameAuthor"
+      :namePaintingDialog="namePainting"
+      :visible="dialogVisible"
+      @close="dialogVisible = false"
+      :namePriceDialog="price"
+      :noPriceDialog="noPrice"
+    >
+    </MyDialog>
   </div>
 </template>
 <script>
 import MyButton from "@/components/UI/MyButton.vue";
+import MyDialog from "@/components/UI/MyDialog.vue";
+
 export default {
   components: {
     MyButton,
+    MyDialog,
+  },
+  data() {
+    return {
+      dialogVisible: false,
+    };
+  },
+  methods: {
+    showDialog() {
+      this.dialogVisible = true;
+    },
   },
   props: {
     image: {
@@ -38,6 +65,9 @@ export default {
     nameAuthor: {
       type: String,
       required: true,
+    },
+    noPrice: {
+      type: String,
     },
     namePainting: {
       type: String,
@@ -71,6 +101,10 @@ export default {
     font-size: 18px;
     line-height: 150%;
     color: #343030;
+    cursor: pointer;
+  }
+  &__img {
+    cursor: pointer;
   }
   &__author {
     max-width: 220px;
