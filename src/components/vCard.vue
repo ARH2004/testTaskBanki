@@ -1,8 +1,9 @@
 <template>
   <div class="card">
-    <img src="{image}" alt="image" class="card__img" />
+    <img :src="require('../assets/' + image)" alt="image" class="card__img" />
     <div class="card__info-card">
-      <h2 class="card__name">{{ name }}</h2>
+      <h2 class="card__painting">{{ namePainting }}</h2>
+      <h2 class="card__author">{{ nameAuthor }}</h2>
       <div class="card__priceAndBtn">
         <p>{{ price }}</p>
         <MyButton class="card__btn">Купить</MyButton>
@@ -21,7 +22,11 @@ export default {
       type: String,
       required: true,
     },
-    name: {
+    nameAuthor: {
+      type: String,
+      required: true,
+    },
+    namePainting: {
       type: String,
       required: true,
     },
@@ -41,7 +46,14 @@ export default {
   &__info-card {
     padding: 20px 24px 24px 24px;
   }
-  &__name {
+  &__painting {
+    max-width: 220px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: #343030;
+  }
+  &__author {
     max-width: 220px;
     margin-bottom: 22px;
     font-weight: 400;

@@ -4,16 +4,15 @@
 
     <div class="container">
       <h1 class="renaissancePaintings__title">Картины эпохи Возрождения</h1>
-      <div
-        class="renaissancePaintings__cards"
-        v-for="item in dt"
-        :key="item.id"
-      >
-        <vCard
-          :image="item.imageOne"
-          :name="item.nameOne"
-          :price="'1 000 000$'"
-        ></vCard>
+      <div class="renaissancePaintings__cards">
+        <div v-for="item in dt" :key="item.id">
+          <vCard
+            :image="item.image"
+            :namePainting="item.namePainting"
+            :nameAuthor="item.nameAuthor"
+            :price="item.price"
+          ></vCard>
+        </div>
       </div>
     </div>
   </div>
@@ -28,23 +27,31 @@ export default {
       dt: [
         {
           id: Date.now(),
-          imageOne: "../assets/images/imgOne.png",
-          nameOne: "«Рождение Венеры» Сандро Боттичелли",
+          image: "images/imgOne.png",
+          namePainting: "«Рождение Венеры»",
+          nameAuthor: "Сандро Боттичелли",
+          price: "1 000 000$",
         },
         {
           id: Date.now(),
-          imageOne: "@/assets/images/imgTwo.png",
-          nameOne: "«Тайная вечеря»  Леонардо да Винчи",
+          image: "images/imgTwo.png",
+          namePainting: "«Тайная вечеря»",
+          nameAuthor: "Леонардо да Винчи",
+          price: "1 000 000$",
         },
         {
           id: Date.now(),
-          imageOne: "@/assets/images/imgThree.png",
-          nameOne: "«Сотворение Адама» Микеланджело",
+          image: "images/imgThree.png",
+          namePainting: "«Сотворение Адама»",
+          nameAuthor: "Микеланджело",
+          price: "1 000 000$",
         },
         {
           id: Date.now(),
-          imageOne: "@/assets/images/imgFour.png",
-          nameOne: "«Урок анатомии»  Рембрандт",
+          image: "images/imgFour.png",
+          namePainting: "«Урок анатомии»",
+          nameAuthor: "Рембрандт",
+          price: "1 000 000$",
         },
       ],
     };
