@@ -11,6 +11,8 @@
             :namePainting="item.namePainting"
             :nameAuthor="item.nameAuthor"
             :price="item.price"
+            :alternativePrice="item.alternativePrice"
+            :showPrice="item.showPrice"
           ></vCard>
         </div>
       </div>
@@ -30,28 +32,33 @@ export default {
           image: "images/imgOne.png",
           namePainting: "«Рождение Венеры»",
           nameAuthor: "Сандро Боттичелли",
-          price: "1 000 000$",
+          alternativePrice: "2 000 000 $",
+          price: "1 000 000 $",
+          showPrice: true,
         },
         {
           id: Date.now(),
           image: "images/imgTwo.png",
           namePainting: "«Тайная вечеря»",
           nameAuthor: "Леонардо да Винчи",
-          price: "1 000 000$",
+          price: "3 000 000 $",
+          showPrice: true,
         },
         {
           id: Date.now(),
           image: "images/imgThree.png",
           namePainting: "«Сотворение Адама»",
           nameAuthor: "Микеланджело",
-          price: "1 000 000$",
+          alternativePrice: "6 000 000 $",
+          price: "5 000 000 $",
+          showPrice: true,
         },
         {
           id: Date.now(),
           image: "images/imgFour.png",
           namePainting: "«Урок анатомии»",
           nameAuthor: "Рембрандт",
-          price: "1 000 000$",
+          showPrice: false,
         },
       ],
     };
