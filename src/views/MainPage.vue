@@ -1,8 +1,11 @@
 <template>
   <div class="mainPage">
     <div>
-      <vHeader></vHeader>
-      <vRenaissancePaintings></vRenaissancePaintings>
+      <vHeader v-model="searchQuery"></vHeader>
+      <vRenaissancePaintings
+        :paintings="paintings"
+        :searchQuery="searchQuery"
+      ></vRenaissancePaintings>
     </div>
     <vFooter></vFooter>
   </div>
@@ -18,6 +21,51 @@ export default {
     vHeader,
     vFooter,
     vRenaissancePaintings,
+  },
+  data() {
+    return {
+      paintings: [
+        {
+          id: Date.now(),
+          image: "images/imgOne.png",
+          namePainting: "«Рождение Венеры»",
+          nameAuthor: "Сандро Боттичелли",
+          alternativePrice: "2 000 000 $",
+          price: "1 000 000 $",
+          showPrice: true,
+        },
+        {
+          id: Date.now(),
+          image: "images/imgTwo.png",
+          namePainting: "«Тайная вечеря»",
+          nameAuthor: "Леонардо да Винчи",
+          price: "3 000 000 $",
+          showPrice: true,
+        },
+        {
+          id: Date.now(),
+          image: "images/imgThree.png",
+          namePainting: "«Сотворение Адама»",
+          nameAuthor: "Микеланджело",
+          alternativePrice: "6 000 000 $",
+          price: "5 000 000 $",
+          showPrice: true,
+        },
+        {
+          id: Date.now(),
+          image: "images/imgFour.png",
+          namePainting: "«Урок анатомии»",
+          nameAuthor: "Рембрандт",
+          showPrice: false,
+        },
+      ],
+      searchQuery: "",
+    };
+  },
+  methods: {
+    updateSearchText(searchText) {
+      this.searchText = searchText;
+    },
   },
 };
 </script>

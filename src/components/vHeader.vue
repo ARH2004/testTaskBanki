@@ -10,7 +10,12 @@
           <a href="#"><li class="header__item">О компании</li></a>
         </ul>
         <div class="header__search">
-          <MyInput type="text" :placeholder="'Поиск по названию картины'" />
+          <input
+            type="text"
+            :placeholder="'Поиск по названию картины'"
+            :value="searchQuery"
+            @input="updateSearchQuery"
+          />
           <MyButton class="header__btn">Найти</MyButton>
         </div>
       </div>
@@ -18,12 +23,24 @@
   </div>
 </template>
 <script>
-import MyInput from "@/components/UI/MyInput.vue";
+// import MyInput from "@/components/UI/MyInput.vue";
 import MyButton from "@/components/UI/MyButton.vue";
 export default {
   components: {
-    MyInput,
+    // MyInput,
     MyButton,
+  },
+  props: ["value"],
+  data() {
+    return {
+      searchQuery: this.value,
+    };
+  },
+  methods: {
+    updateSearchQuery(event) {
+      this.searchQuery = event.target.value;
+      this.$emit("input", this.searchQuery);
+    },
   },
 };
 </script>

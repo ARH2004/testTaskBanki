@@ -5,14 +5,14 @@
     <div class="container">
       <h1 class="renaissancePaintings__title">Картины эпохи Возрождения</h1>
       <div class="renaissancePaintings__cards">
-        <div v-for="item in dt" :key="item.id">
+        <div v-for="painting in filteredPaintings" :key="painting.id">
           <vCard
-            :image="item.image"
-            :namePainting="item.namePainting"
-            :nameAuthor="item.nameAuthor"
-            :price="item.price"
-            :alternativePrice="item.alternativePrice"
-            :showPrice="item.showPrice"
+            :image="painting.image"
+            :namePainting="painting.namePainting"
+            :nameAuthor="painting.nameAuthor"
+            :price="painting.price"
+            :alternativePrice="painting.alternativePrice"
+            :showPrice="painting.showPrice"
             :noPrice="noPrice"
           ></vCard>
         </div>
@@ -28,42 +28,22 @@ export default {
   data() {
     return {
       noPrice: "Продана на аукционе",
-      dt: [
-        {
-          id: Date.now(),
-          image: "images/imgOne.png",
-          namePainting: "«Рождение Венеры»",
-          nameAuthor: "Сандро Боттичелли",
-          alternativePrice: "2 000 000 $",
-          price: "1 000 000 $",
-          showPrice: true,
-        },
-        {
-          id: Date.now(),
-          image: "images/imgTwo.png",
-          namePainting: "«Тайная вечеря»",
-          nameAuthor: "Леонардо да Винчи",
-          price: "3 000 000 $",
-          showPrice: true,
-        },
-        {
-          id: Date.now(),
-          image: "images/imgThree.png",
-          namePainting: "«Сотворение Адама»",
-          nameAuthor: "Микеланджело",
-          alternativePrice: "6 000 000 $",
-          price: "5 000 000 $",
-          showPrice: true,
-        },
-        {
-          id: Date.now(),
-          image: "images/imgFour.png",
-          namePainting: "«Урок анатомии»",
-          nameAuthor: "Рембрандт",
-          showPrice: false,
-        },
-      ],
     };
+  },
+  props: ["paintings", "searchQuery"],
+  computed: {
+    filteredPaintings() {
+      if (!this.paintings) {
+        return [];
+      }
+      if (!this.searchQuery) {
+        return this.paintings;
+      }
+      const searchLower = this.searchQuery.toLowerCase();
+      return this.paintings.filter((painting) => {
+        return painting.nameAuthor.toLowerCase().includes(searchLower);
+      });
+    },
   },
 };
 </script>
