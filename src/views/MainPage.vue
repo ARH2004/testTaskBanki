@@ -33,6 +33,7 @@ export default {
           alternativePrice: "2 000 000 $",
           price: "1 000 000 $",
           showPrice: true,
+          idx: "1",
         },
         {
           id: Date.now(),
@@ -41,6 +42,7 @@ export default {
           nameAuthor: "Леонардо да Винчи",
           price: "3 000 000 $",
           showPrice: true,
+          idx: "2",
         },
         {
           id: Date.now(),
@@ -50,6 +52,7 @@ export default {
           alternativePrice: "6 000 000 $",
           price: "5 000 000 $",
           showPrice: true,
+          idx: "3",
         },
         {
           id: Date.now(),
@@ -57,6 +60,7 @@ export default {
           namePainting: "«Урок анатомии»",
           nameAuthor: "Рембрандт",
           showPrice: false,
+          idx: "4",
         },
       ],
       searchQuery: "",

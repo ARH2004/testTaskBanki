@@ -14,6 +14,7 @@
             :alternativePrice="painting.alternativePrice"
             :showPrice="painting.showPrice"
             :noPrice="noPrice"
+            :idx="painting.idx"
           ></vCard>
         </div>
       </div>

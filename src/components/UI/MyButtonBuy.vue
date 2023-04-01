@@ -21,11 +21,24 @@
 </template>
 <script>
 export default {
+  props: {
+    idx: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       processing: false,
       added: false,
     };
+  },
+  mounted() {
+    const state = JSON.parse(localStorage.getItem(`button-state-${this.idx}`));
+    if (state) {
+      this.processing = state.processing;
+      this.added = state.added;
+    }
   },
   methods: {
     handleClick() {
@@ -34,12 +47,21 @@ export default {
         setTimeout(() => {
           this.processing = false;
           this.added = true;
+          this.saveState();
         }, 2000);
       }
+    },
+    saveState() {
+      const state = {
+        processing: this.processing,
+        added: this.added,
+      };
+      localStorage.setItem(`button-state-${this.idx}`, JSON.stringify(state));
     },
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .btn {
   height: 48px;

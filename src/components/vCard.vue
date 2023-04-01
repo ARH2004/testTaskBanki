@@ -23,7 +23,9 @@
           <p class="card__alternativePrice">{{ alternativePrice }}</p>
           <p class="card__price">{{ price }}</p>
         </div>
-        <MyButton class="card__btn">Купить</MyButton>
+        <!-- <div> -->
+        <MyButton class="card__btn" :idx="idx">Купить</MyButton>
+        <!-- </div> -->
       </div>
       <p class="card__notAvailable" v-else>{{ noPrice }}</p>
     </div>
@@ -81,6 +83,9 @@ export default {
     },
     showPrice: {
       type: Boolean,
+    },
+    idx: {
+      type: String,
     },
   },
 };
