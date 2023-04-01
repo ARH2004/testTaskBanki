@@ -41,7 +41,7 @@ export default {
       }
       const searchLower = this.searchQuery.toLowerCase();
       return this.paintings.filter((painting) => {
-        return painting.nameAuthor.toLowerCase().includes(searchLower);
+        return painting.namePainting.toLowerCase().includes(searchLower);
       });
     },
   },
@@ -67,9 +67,10 @@ export default {
     margin-bottom: 40px;
   }
   &__cards {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 50px;
   }
 }
 </style>
