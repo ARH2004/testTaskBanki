@@ -11,8 +11,22 @@
       </div>
       <div class="dialog__gallery">
         <h4 class="dialog__gallery-title">Галерея</h4>
+        <div class="wrapper">
+          <div
+            class="wrapper__carousel"
+            :style="{ 'margin-left': '-' + 100 * currentSlideIndex + '%' }"
+          >
+            <div v-for="item in dataSelectionsSwiper" :key="item.id">
+              <img :src="require(`@/assets/${item.image}`)" />
+            </div>
+          </div>
+          <div class="dialog__box-btn">
+            <button class="dialog__btn" @click="prevSlide">Назад</button>
+            <button class="dialog__btn" @click="nextSlide">Вперед</button>
+          </div>
+        </div>
       </div>
-      <button @click="$emit('close')" class="dialog__closeBtn">Close</button>
+      <button @click="$emit('close')" class="dialog__closeBtn">Скрыть</button>
       <slot></slot>
     </div>
   </div>
@@ -20,6 +34,33 @@
 
 <script>
 export default {
+  data() {
+    return {
+      dataSelectionsSwiper: [
+        {
+          id: Date.now(),
+          title: "1у42141241пыкаыа2",
+          image: "images/imgOne.png",
+        },
+        {
+          id: Date.now(),
+          title: "122цвйвйвфмы132",
+          image: "images/imgThree.png",
+        },
+        {
+          id: Date.now(),
+          title: "122цвйвйвфмы132",
+          image: "images/imgTwo.png",
+        },
+        {
+          id: Date.now(),
+          title: "122цвйвйвфмы132",
+          image: "images/imgFour.png",
+        },
+      ],
+      currentSlideIndex: 0,
+    };
+  },
   props: {
     visible: {
       type: Boolean,
@@ -40,9 +81,32 @@ export default {
       type: String,
     },
   },
+  methods: {
+    prevSlide() {
+      if (this.currentSlideIndex > 0) {
+        this.currentSlideIndex--;
+      }
+    },
+    nextSlide() {
+      if (this.currentSlideIndex >= this.dataSelectionsSwiper.length - 1) {
+        this.currentSlideIndex = 0;
+      } else {
+        this.currentSlideIndex++;
+      }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
+.wrapper {
+  max-width: 280px;
+  overflow: hidden;
+  margin: 0 auto;
+  &__carousel {
+    display: flex;
+    transition: all ease 0.5s;
+  }
+}
 .dialog {
   position: relative;
   z-index: 10;
@@ -53,6 +117,22 @@ export default {
   background-color: rgba(0, 0, 0, 0.2);
   position: fixed;
   display: flex;
+  &__box-btn {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__btn {
+    max-width: 80px;
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 150%;
+    height: 48px;
+    min-width: 80px;
+    background: #403432;
+  }
   &__content {
     margin: auto;
     background: white;
@@ -64,9 +144,13 @@ export default {
   &__description-box {
     margin-top: 40px;
   }
+  &__gallery {
+    margin-top: 40px;
+  }
   &__gallery-title {
     text-align: center;
     font-size: 25px;
+    margin-bottom: 20px;
   }
   &__description {
     font-size: 25px;
@@ -84,7 +168,7 @@ export default {
     margin-top: 20px;
   }
   &__closeBtn {
-    margin: 70% 0 0 80%;
+    margin: 30% 0 0 80%;
     color: #ffffff;
     font-weight: 700;
     font-size: 18px;

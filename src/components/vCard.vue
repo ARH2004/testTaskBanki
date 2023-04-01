@@ -39,7 +39,7 @@
   </div>
 </template>
 <script>
-import MyButton from "@/components/UI/MyButton.vue";
+import MyButton from "@/components/UI/MyButtonBuy.vue";
 import MyDialog from "@/components/UI/MyDialog.vue";
 
 export default {

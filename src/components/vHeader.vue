@@ -11,7 +11,7 @@
         </ul>
         <div class="header__search">
           <MyInput type="text" :placeholder="'Поиск по названию картины'" />
-          <button class="header__btn">Найти</button>
+          <MyButton class="header__btn">Найти</MyButton>
         </div>
       </div>
     </div>
@@ -19,9 +19,11 @@
 </template>
 <script>
 import MyInput from "@/components/UI/MyInput.vue";
+import MyButton from "@/components/UI/MyButton.vue";
 export default {
   components: {
     MyInput,
+    MyButton,
   },
 };
 </script>
@@ -47,15 +49,6 @@ export default {
     line-height: 150%;
     margin-right: 48px;
     color: #343030;
-  }
-  &__btn {
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 150%;
-    height: 48px;
-    min-width: 120px;
-    background: #403432;
   }
 }
 .header__list:last-child {
