@@ -49,7 +49,7 @@ export default {};
 }
 .footer {
   background: #eceaea;
-  padding: 38px 0;
+  padding: 38px 20px;
   &__wrapper {
     display: flex;
     justify-content: space-between;
@@ -101,5 +101,17 @@ export default {};
 }
 .footer__list:last-child {
   margin-right: 0;
+}
+@media (max-width: 1300px) {
+  .footer {
+    &__list {
+      display: block;
+    }
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
 }
 </style>

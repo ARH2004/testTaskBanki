@@ -1,7 +1,6 @@
 <template>
   <div class="renaissancePaintings">
     <hr class="renaissancePaintings__line" />
-
     <div class="container">
       <h1 class="renaissancePaintings__title">Картины эпохи Возрождения</h1>
       <div class="renaissancePaintings__cards">
@@ -54,9 +53,9 @@ export default {
   margin: 0 auto;
 }
 .renaissancePaintings {
+  width: 100vw;
   &__line {
     margin: 25px 0px 45px 0px;
-    width: 100%;
     height: 1px;
     background-color: #e1e1e1;
   }
@@ -72,6 +71,29 @@ export default {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 32px;
     margin-bottom: 50px;
+  }
+}
+@media (max-width: 1300px) {
+  .renaissancePaintings {
+    &__cards {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .renaissancePaintings {
+    &__cards {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .renaissancePaintings {
+    &__cards {
+      grid-template-columns: 1fr;
+      position: relative;
+      left: 40%;
+    }
   }
 }
 </style>

@@ -39,22 +39,18 @@ export default {
       dataSelectionsSwiper: [
         {
           id: Date.now(),
-          title: "1у42141241пыкаыа2",
           image: "images/imgOne.png",
         },
         {
           id: Date.now(),
-          title: "122цвйвйвфмы132",
           image: "images/imgThree.png",
         },
         {
           id: Date.now(),
-          title: "122цвйвйвфмы132",
           image: "images/imgTwo.png",
         },
         {
           id: Date.now(),
-          title: "122цвйвйвфмы132",
           image: "images/imgFour.png",
         },
       ],
