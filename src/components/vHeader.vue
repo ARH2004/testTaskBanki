@@ -12,6 +12,7 @@
         <div class="header__search">
           <input
             type="text"
+            class="header__input"
             :placeholder="'Поиск по названию картины'"
             :value="searchQuery"
             @input="updateSearchQuery"
@@ -23,11 +24,9 @@
   </div>
 </template>
 <script>
-// import MyInput from "@/components/UI/MyInput.vue";
 import MyButton from "@/components/UI/MyButton.vue";
 export default {
   components: {
-    // MyInput,
     MyButton,
   },
   props: ["value"],
@@ -67,6 +66,22 @@ export default {
     margin-right: 48px;
     color: #343030;
   }
+  &__input {
+    height: 48px;
+    width: 295px;
+    border: 1px solid #e1e1e1;
+    padding: 13px 0px 14px 16px;
+  }
+}
+.header__input:focus {
+  border: 1px solid #b5b5b5;
+}
+::placeholder {
+  font-size: 14px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  color: #9f9f9f;
 }
 .header__list:last-child {
   margin-right: 0;

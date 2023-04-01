@@ -49,7 +49,8 @@ export default {
     padding-top: 3px;
   }
   &__processed {
-    margin: 0px 5px;
+    margin: 0px 4px;
+    font-size: 12px;
   }
 }
 .btn:hover {
@@ -57,7 +58,7 @@ export default {
   color: #f4f6f9;
 }
 .spinner {
-  margin: 0px 10px 0px 5px;
+  margin: 0px 5px 0px 5px;
   display: inline-block;
   width: 10px;
   height: 10px;
